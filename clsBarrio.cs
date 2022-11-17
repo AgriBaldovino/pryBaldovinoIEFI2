@@ -57,7 +57,7 @@ namespace pryBaldovinoIEFI
             Conexion.Close();
         }
 
-        public string Buscar(Int32 codBarrio)
+        public string Buscar(Int32 CodigoBarrio)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace pryBaldovinoIEFI
                 {
                     while (DR.Read())
                     {
-                        if (DR.GetInt32(0) == codBarrio)
+                        if (DR.GetInt32(0) == CodigoBarrio)
                         {
                             Resultado = DR.GetString(1);
                         }
@@ -82,9 +82,9 @@ namespace pryBaldovinoIEFI
                 Conexion.Close();
                 return Resultado;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                
+                return e.ToString();
             }
         }
         public void Agregar()

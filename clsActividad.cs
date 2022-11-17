@@ -117,7 +117,7 @@ namespace pryBaldovinoIEFI
 
         }
 
-        public String Buscar(Int32 codActividad)
+        public String Buscar(Int32 CodigoActividad)
         {
             try
             {
@@ -133,7 +133,7 @@ namespace pryBaldovinoIEFI
                 {
                     while (DR.Read())
                     {
-                        if (DR.GetInt32(0) == codActividad)
+                        if (DR.GetInt32(0) == CodigoActividad)
                         {
                             Resultado2 = DR.GetString(1);
                         }
@@ -143,9 +143,9 @@ namespace pryBaldovinoIEFI
                 Conexion.Close();
                 return Resultado2;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                return e.ToString();
             }
         }
     }
