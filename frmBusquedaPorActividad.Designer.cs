@@ -36,35 +36,25 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lstActividad = new System.Windows.Forms.ComboBox();
-            this.lblMenorSaldo = new System.Windows.Forms.Label();
-            this.lblPromedioDeSaldos = new System.Windows.Forms.Label();
-            this.lblMayorSaldo = new System.Windows.Forms.Label();
-            this.lblPromedio = new System.Windows.Forms.Label();
-            this.lblMenorSald = new System.Windows.Forms.Label();
-            this.lblMayorSal = new System.Windows.Forms.Label();
-            this.mrcInformacion = new System.Windows.Forms.GroupBox();
-            this.lblTotalDeSaldos = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.cmdMostrar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaCliente)).BeginInit();
-            this.mrcInformacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // cmdConsultar
             // 
             this.cmdConsultar.Enabled = false;
-            this.cmdConsultar.Location = new System.Drawing.Point(188, 232);
+            this.cmdConsultar.Location = new System.Drawing.Point(209, 231);
             this.cmdConsultar.Name = "cmdConsultar";
             this.cmdConsultar.Size = new System.Drawing.Size(71, 23);
             this.cmdConsultar.TabIndex = 3;
             this.cmdConsultar.Text = "Consultar";
             this.cmdConsultar.UseVisualStyleBackColor = true;
+            this.cmdConsultar.Click += new System.EventHandler(this.cmdConsultar_Click);
             // 
             // cmdSalir
             // 
-            this.cmdSalir.Location = new System.Drawing.Point(93, 232);
+            this.cmdSalir.Location = new System.Drawing.Point(114, 231);
             this.cmdSalir.Name = "cmdSalir";
             this.cmdSalir.Size = new System.Drawing.Size(71, 23);
             this.cmdSalir.TabIndex = 6;
@@ -90,18 +80,21 @@
             this.dgvConsultaCliente.Location = new System.Drawing.Point(15, 50);
             this.dgvConsultaCliente.Name = "dgvConsultaCliente";
             this.dgvConsultaCliente.ReadOnly = true;
-            this.dgvConsultaCliente.Size = new System.Drawing.Size(244, 176);
+            this.dgvConsultaCliente.Size = new System.Drawing.Size(265, 176);
             this.dgvConsultaCliente.TabIndex = 2;
+            this.dgvConsultaCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsultaCliente_CellContentClick);
             // 
             // Column2
             // 
             this.Column2.HeaderText = "DNI";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Nombre y apellido";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // lstActividad
             // 
@@ -122,104 +115,6 @@
             this.lstActividad.TabIndex = 1;
             this.lstActividad.SelectedIndexChanged += new System.EventHandler(this.lstActividad_SelectedIndexChanged);
             // 
-            // lblMenorSaldo
-            // 
-            this.lblMenorSaldo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblMenorSaldo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblMenorSaldo.Location = new System.Drawing.Point(103, 62);
-            this.lblMenorSaldo.Name = "lblMenorSaldo";
-            this.lblMenorSaldo.Size = new System.Drawing.Size(100, 17);
-            this.lblMenorSaldo.TabIndex = 34;
-            // 
-            // lblPromedioDeSaldos
-            // 
-            this.lblPromedioDeSaldos.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblPromedioDeSaldos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPromedioDeSaldos.Location = new System.Drawing.Point(103, 98);
-            this.lblPromedioDeSaldos.Name = "lblPromedioDeSaldos";
-            this.lblPromedioDeSaldos.Size = new System.Drawing.Size(100, 17);
-            this.lblPromedioDeSaldos.TabIndex = 33;
-            // 
-            // lblMayorSaldo
-            // 
-            this.lblMayorSaldo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblMayorSaldo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblMayorSaldo.Location = new System.Drawing.Point(103, 27);
-            this.lblMayorSaldo.Name = "lblMayorSaldo";
-            this.lblMayorSaldo.Size = new System.Drawing.Size(100, 17);
-            this.lblMayorSaldo.TabIndex = 32;
-            // 
-            // lblPromedio
-            // 
-            this.lblPromedio.AutoSize = true;
-            this.lblPromedio.Location = new System.Drawing.Point(18, 99);
-            this.lblPromedio.Name = "lblPromedio";
-            this.lblPromedio.Size = new System.Drawing.Size(51, 13);
-            this.lblPromedio.TabIndex = 31;
-            this.lblPromedio.Text = "Promedio";
-            // 
-            // lblMenorSald
-            // 
-            this.lblMenorSald.AutoSize = true;
-            this.lblMenorSald.Location = new System.Drawing.Point(18, 63);
-            this.lblMenorSald.Name = "lblMenorSald";
-            this.lblMenorSald.Size = new System.Drawing.Size(67, 13);
-            this.lblMenorSald.TabIndex = 30;
-            this.lblMenorSald.Text = "Menos saldo";
-            // 
-            // lblMayorSal
-            // 
-            this.lblMayorSal.AutoSize = true;
-            this.lblMayorSal.Location = new System.Drawing.Point(18, 27);
-            this.lblMayorSal.Name = "lblMayorSal";
-            this.lblMayorSal.Size = new System.Drawing.Size(64, 13);
-            this.lblMayorSal.TabIndex = 29;
-            this.lblMayorSal.Text = "Mayor saldo";
-            // 
-            // mrcInformacion
-            // 
-            this.mrcInformacion.Controls.Add(this.lblTotalDeSaldos);
-            this.mrcInformacion.Controls.Add(this.lblTotal);
-            this.mrcInformacion.Controls.Add(this.lblPromedioDeSaldos);
-            this.mrcInformacion.Controls.Add(this.lblMenorSaldo);
-            this.mrcInformacion.Controls.Add(this.lblMayorSal);
-            this.mrcInformacion.Controls.Add(this.lblMenorSald);
-            this.mrcInformacion.Controls.Add(this.lblMayorSaldo);
-            this.mrcInformacion.Controls.Add(this.lblPromedio);
-            this.mrcInformacion.Location = new System.Drawing.Point(282, 50);
-            this.mrcInformacion.Name = "mrcInformacion";
-            this.mrcInformacion.Size = new System.Drawing.Size(236, 176);
-            this.mrcInformacion.TabIndex = 4;
-            this.mrcInformacion.TabStop = false;
-            this.mrcInformacion.Text = "Informacion";
-            // 
-            // lblTotalDeSaldos
-            // 
-            this.lblTotalDeSaldos.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTotalDeSaldos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblTotalDeSaldos.Location = new System.Drawing.Point(103, 134);
-            this.lblTotalDeSaldos.Name = "lblTotalDeSaldos";
-            this.lblTotalDeSaldos.Size = new System.Drawing.Size(100, 17);
-            this.lblTotalDeSaldos.TabIndex = 36;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(18, 135);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(79, 13);
-            this.lblTotal.TabIndex = 35;
-            this.lblTotal.Text = "Total de saldos";
-            // 
-            // cmdMostrar
-            // 
-            this.cmdMostrar.Location = new System.Drawing.Point(447, 232);
-            this.cmdMostrar.Name = "cmdMostrar";
-            this.cmdMostrar.Size = new System.Drawing.Size(71, 23);
-            this.cmdMostrar.TabIndex = 5;
-            this.cmdMostrar.Text = "Mostrar";
-            this.cmdMostrar.UseVisualStyleBackColor = true;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -234,10 +129,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 266);
+            this.ClientSize = new System.Drawing.Size(292, 266);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.cmdMostrar);
-            this.Controls.Add(this.mrcInformacion);
             this.Controls.Add(this.lstActividad);
             this.Controls.Add(this.cmdConsultar);
             this.Controls.Add(this.cmdSalir);
@@ -249,8 +142,6 @@
             this.Text = "Busqueda por actividad";
             this.Load += new System.EventHandler(this.frmBusquedaPorActividad_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaCliente)).EndInit();
-            this.mrcInformacion.ResumeLayout(false);
-            this.mrcInformacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -266,16 +157,6 @@
         private System.Windows.Forms.ComboBox lstActividad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.Label lblMenorSaldo;
-        private System.Windows.Forms.Label lblPromedioDeSaldos;
-        private System.Windows.Forms.Label lblMayorSaldo;
-        private System.Windows.Forms.Label lblPromedio;
-        private System.Windows.Forms.Label lblMenorSald;
-        private System.Windows.Forms.Label lblMayorSal;
-        private System.Windows.Forms.GroupBox mrcInformacion;
-        private System.Windows.Forms.Label lblTotalDeSaldos;
-        private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Button cmdMostrar;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

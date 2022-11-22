@@ -34,17 +34,14 @@
             this.cmdSalir = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mskDNI = new System.Windows.Forms.MaskedTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.mrcDatos = new System.Windows.Forms.GroupBox();
-            this.lblNombreyApellido = new System.Windows.Forms.Label();
-            this.lblActividad = new System.Windows.Forms.Label();
-            this.lblSaldo = new System.Windows.Forms.Label();
-            this.lblBarrio = new System.Windows.Forms.Label();
+            this.dgvConsultarCliente = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.mrcDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsultarCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDNI
@@ -69,7 +66,7 @@
             // 
             // cmdSalir
             // 
-            this.cmdSalir.Location = new System.Drawing.Point(216, 274);
+            this.cmdSalir.Location = new System.Drawing.Point(482, 174);
             this.cmdSalir.Name = "cmdSalir";
             this.cmdSalir.Size = new System.Drawing.Size(71, 23);
             this.cmdSalir.TabIndex = 4;
@@ -97,101 +94,58 @@
             this.mskDNI.ValidatingType = typeof(int);
             this.mskDNI.TextChanged += new System.EventHandler(this.mskDNI_TextChanged);
             // 
-            // label1
+            // dgvConsultarCliente
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Nombre y apellido";
+            this.dgvConsultarCliente.AllowUserToDeleteRows = false;
+            this.dgvConsultarCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConsultarCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            this.dgvConsultarCliente.Location = new System.Drawing.Point(5, 80);
+            this.dgvConsultarCliente.Name = "dgvConsultarCliente";
+            this.dgvConsultarCliente.ReadOnly = true;
+            this.dgvConsultarCliente.Size = new System.Drawing.Size(548, 87);
+            this.dgvConsultarCliente.TabIndex = 16;
             // 
-            // label2
+            // Column1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Barrio";
+            this.Column1.HeaderText = "DNI";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
-            // label3
+            // Column2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 106);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Actividad";
+            this.Column2.HeaderText = "Nombre y apellido";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
-            // label8
+            // Column3
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(19, 144);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(34, 13);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "Saldo";
+            this.Column3.HeaderText = "Barrio";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
-            // mrcDatos
+            // Column4
             // 
-            this.mrcDatos.Controls.Add(this.lblActividad);
-            this.mrcDatos.Controls.Add(this.lblSaldo);
-            this.mrcDatos.Controls.Add(this.label1);
-            this.mrcDatos.Controls.Add(this.label8);
-            this.mrcDatos.Controls.Add(this.label2);
-            this.mrcDatos.Controls.Add(this.label3);
-            this.mrcDatos.Controls.Add(this.lblBarrio);
-            this.mrcDatos.Controls.Add(this.lblNombreyApellido);
-            this.mrcDatos.Location = new System.Drawing.Point(19, 92);
-            this.mrcDatos.Name = "mrcDatos";
-            this.mrcDatos.Size = new System.Drawing.Size(247, 176);
-            this.mrcDatos.TabIndex = 3;
-            this.mrcDatos.TabStop = false;
-            this.mrcDatos.Text = "Datos";
+            this.Column4.HeaderText = "Actividad";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
-            // lblNombreyApellido
+            // Column5
             // 
-            this.lblNombreyApellido.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblNombreyApellido.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblNombreyApellido.Location = new System.Drawing.Point(116, 29);
-            this.lblNombreyApellido.Name = "lblNombreyApellido";
-            this.lblNombreyApellido.Size = new System.Drawing.Size(100, 19);
-            this.lblNombreyApellido.TabIndex = 25;
-            // 
-            // lblActividad
-            // 
-            this.lblActividad.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblActividad.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblActividad.Location = new System.Drawing.Point(80, 105);
-            this.lblActividad.Name = "lblActividad";
-            this.lblActividad.Size = new System.Drawing.Size(136, 19);
-            this.lblActividad.TabIndex = 26;
-            // 
-            // lblSaldo
-            // 
-            this.lblSaldo.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSaldo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblSaldo.Location = new System.Drawing.Point(80, 143);
-            this.lblSaldo.Name = "lblSaldo";
-            this.lblSaldo.Size = new System.Drawing.Size(136, 19);
-            this.lblSaldo.TabIndex = 27;
-            // 
-            // lblBarrio
-            // 
-            this.lblBarrio.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblBarrio.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblBarrio.Location = new System.Drawing.Point(80, 67);
-            this.lblBarrio.Name = "lblBarrio";
-            this.lblBarrio.Size = new System.Drawing.Size(136, 19);
-            this.lblBarrio.TabIndex = 28;
+            this.Column5.HeaderText = "Saldo";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // frmConsultarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 304);
-            this.Controls.Add(this.mrcDatos);
+            this.ClientSize = new System.Drawing.Size(565, 202);
+            this.Controls.Add(this.dgvConsultarCliente);
             this.Controls.Add(this.mskDNI);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cmdBuscar);
@@ -203,8 +157,7 @@
             this.Text = "Consultar cliente";
             this.Load += new System.EventHandler(this.frmConsultarCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.mrcDatos.ResumeLayout(false);
-            this.mrcDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsultarCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,14 +169,11 @@
         private System.Windows.Forms.Button cmdSalir;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MaskedTextBox mskDNI;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.GroupBox mrcDatos;
-        private System.Windows.Forms.Label lblActividad;
-        private System.Windows.Forms.Label lblSaldo;
-        private System.Windows.Forms.Label lblBarrio;
-        private System.Windows.Forms.Label lblNombreyApellido;
+        private System.Windows.Forms.DataGridView dgvConsultarCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

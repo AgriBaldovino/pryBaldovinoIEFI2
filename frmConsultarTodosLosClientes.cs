@@ -32,39 +32,13 @@ namespace pryBaldovinoIEFI
 
         private void cmdConsultar_Click(object sender, EventArgs e)
         {
+            clsClientes Listar = new clsClientes();
+            Listar.ListarClientes(dgvConsultaClientes);
+            
+        }
 
-            dgvConsultaClientes.Rows.Clear();
-            try
-            {
-                Conexion.ConnectionString = CadenaConexion;
-                Conexion.Open();
-                Comando.Connection = Conexion;
-                Comando.CommandType = CommandType.TableDirect;
-                Comando.CommandText = Tabla;
-                
-                
-                clsBarrio Barrio = new clsBarrio();
-                String NombreBarrio = "";
-                clsActividad Actividad = new clsActividad();
-                String NombreActividad = "";
-                OleDbDataReader DR = Comando.ExecuteReader();
-                if (DR.HasRows)
-                {
-                    while (DR.Read())
-                    {
-                        NombreBarrio = Barrio.Buscar(DR.GetInt32(2));
-                        NombreActividad = Actividad.Buscar(DR.GetInt32(3));
-                        dgvConsultaClientes.Rows.Add(DR.GetInt32(0), DR.GetString(1), NombreBarrio, NombreActividad, DR.GetString(4));
-                    }
-                }
-                Conexion.Close();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("No");
-            }
-
-
+        private void frmConsultarTodosLosClientes_Load(object sender, EventArgs e)
+        {
 
         }
     }

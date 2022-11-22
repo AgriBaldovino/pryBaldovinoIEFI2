@@ -33,6 +33,8 @@ namespace pryBaldovinoIEFI
             AgregarBarrio.Agregar();
 
             MessageBox.Show("Datos cargados con exito");
+
+            LimpiarBarrio();
         }
 
         private void cmdAgregarActividad_Click(object sender, EventArgs e)
@@ -45,11 +47,69 @@ namespace pryBaldovinoIEFI
             AgregarAct.Agregar();
 
             MessageBox.Show("Datos cargados con exito");
+
+            LimpiarAct();
         }
 
         private void frmAgregarDatos_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void LimpiarAct()
+        {
+            txtDetalleAct.Text = "";
+            mskCodAct.Text = "";
+        }
+
+        private void LimpiarBarrio()
+        {
+            txtDetalleBarrio.Text = "";
+            mskCodBarrio.Text = "";
+        }
+
+        private void BloquearBotonAct()
+        {
+            if (txtDetalleAct.Text != "" && mskCodAct.Text != "")
+            {
+                cmdAgregarActividad.Enabled = true;
+            }
+            else
+            {
+                cmdAgregarActividad.Enabled = false;
+            }
+        }
+
+        private void BloquearBotonBarrio()
+        {
+            if (txtDetalleBarrio.Text != "" && mskCodBarrio.Text != "")
+            {
+                cmdAgregarBarrio.Enabled = true;
+            }
+            else
+            {
+                cmdAgregarBarrio.Enabled = false;
+            }
+        }
+
+        private void txtDetalleAct_TextChanged(object sender, EventArgs e)
+        {
+            BloquearBotonAct();
+        }
+
+        private void mskCodAct_TextChanged(object sender, EventArgs e)
+        {
+            BloquearBotonAct();
+        }
+
+        private void txtDetalleBarrio_TextChanged(object sender, EventArgs e)
+        {
+            BloquearBotonBarrio();
+        }
+
+        private void mskCodBarrio_TextChanged(object sender, EventArgs e)
+        {
+            BloquearBotonBarrio();
         }
     }
 }

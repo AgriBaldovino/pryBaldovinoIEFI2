@@ -94,11 +94,16 @@ namespace pryBaldovinoIEFI
 
         private void cmdModificar_Click(object sender, EventArgs e)
         {
-            //HACER QUE LAS TXT SE PUEDAN MODIFICAR
-            //if (cmdModificar == true ) ;
-            //{
-
-            //}
+            //Deshabilito los botones que no uso
+            cmdEliminar.Enabled = false;
+            cmdModificar.Enabled = false;
+            cmdGuardar.Enabled = true;
+            
+            //Habilito los txt, msk y lst
+            txtNombreYApellido.ReadOnly = false;
+            mskSaldo.ReadOnly = false;
+            lstBarrio.Enabled = true;
+            lstActividad.Enabled = true;
         }
 
         private void cmdConsultar_Click(object sender, EventArgs e)
@@ -118,6 +123,20 @@ namespace pryBaldovinoIEFI
                 lstBarrio.SelectedValue = Convert.ToString(Buscar.BarrioCliente);
                 lstActividad.SelectedValue = Convert.ToString(Buscar.ActividadCliente);
             }
+
+            //habilito los botones
+            cmdEliminar.Enabled = true;
+            cmdModificar.Enabled = true;
+            BloquearTxt();
+
+
+        }
+        private void BloquearTxt()
+        {
+            txtNombreYApellido.ReadOnly = true;
+            mskSaldo.ReadOnly = true;
+            lstBarrio.Enabled = false;
+            lstActividad.Enabled = false;
         }
 
         private void cmdGuardar_Click(object sender, EventArgs e)

@@ -43,5 +43,22 @@ namespace pryBaldovinoIEFI
         {
             verificacionBoton();
         }
+
+        private void dgvConsultaCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cmdConsultar_Click(object sender, EventArgs e)
+        {
+            Int32 codActividad = Convert.ToInt32(lstActividad.SelectedValue);
+            clsClientes ConsultaAct = new clsClientes();
+            ConsultaAct.ListarGrillaAct(dgvConsultaCliente, codActividad);
+        }
+
+        private void cmdMostrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

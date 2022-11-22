@@ -82,19 +82,10 @@ namespace pryBaldovinoIEFI
             lblPromedioDeSaldos.Text = Convert.ToString(promedio);
         }
 
-        private void bloqueoBoton()
+        private void cmdExportar_Click(object sender, EventArgs e)
         {
-            //Si la dgv tiene registros entonces desbloquear boton "Mostrar"
-            //if ()
-            //{
-               
-
-
-
-            //}
-
+            clsClientes Exportar = new clsClientes();
+            Exportar.ExportarClientesSaldos();
         }
-
-
     }
 }

@@ -33,20 +33,21 @@
             this.txtDetalleBarrio = new System.Windows.Forms.TextBox();
             this.cmdAgregarActividad = new System.Windows.Forms.Button();
             this.mrcActividad = new System.Windows.Forms.GroupBox();
+            this.mskCodAct = new System.Windows.Forms.MaskedTextBox();
             this.lblCodAct = new System.Windows.Forms.Label();
             this.txtDetalleAct = new System.Windows.Forms.TextBox();
             this.lblDetalleAct = new System.Windows.Forms.Label();
             this.mrcBarrio = new System.Windows.Forms.GroupBox();
+            this.mskCodBarrio = new System.Windows.Forms.MaskedTextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.cmdSalir = new System.Windows.Forms.Button();
-            this.mskCodBarrio = new System.Windows.Forms.MaskedTextBox();
-            this.mskCodAct = new System.Windows.Forms.MaskedTextBox();
             this.mrcActividad.SuspendLayout();
             this.mrcBarrio.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmdAgregarBarrio
             // 
+            this.cmdAgregarBarrio.Enabled = false;
             this.cmdAgregarBarrio.Location = new System.Drawing.Point(105, 84);
             this.cmdAgregarBarrio.Name = "cmdAgregarBarrio";
             this.cmdAgregarBarrio.Size = new System.Drawing.Size(75, 23);
@@ -70,9 +71,11 @@
             this.txtDetalleBarrio.Name = "txtDetalleBarrio";
             this.txtDetalleBarrio.Size = new System.Drawing.Size(108, 20);
             this.txtDetalleBarrio.TabIndex = 6;
+            this.txtDetalleBarrio.TextChanged += new System.EventHandler(this.txtDetalleBarrio_TextChanged);
             // 
             // cmdAgregarActividad
             // 
+            this.cmdAgregarActividad.Enabled = false;
             this.cmdAgregarActividad.Location = new System.Drawing.Point(105, 84);
             this.cmdAgregarActividad.Name = "cmdAgregarActividad";
             this.cmdAgregarActividad.Size = new System.Drawing.Size(75, 23);
@@ -95,6 +98,16 @@
             this.mrcActividad.TabStop = false;
             this.mrcActividad.Text = "Nueva actividad";
             // 
+            // mskCodAct
+            // 
+            this.mskCodAct.Location = new System.Drawing.Point(72, 58);
+            this.mskCodAct.Mask = "99999";
+            this.mskCodAct.Name = "mskCodAct";
+            this.mskCodAct.Size = new System.Drawing.Size(108, 20);
+            this.mskCodAct.TabIndex = 3;
+            this.mskCodAct.ValidatingType = typeof(int);
+            this.mskCodAct.TextChanged += new System.EventHandler(this.mskCodAct_TextChanged);
+            // 
             // lblCodAct
             // 
             this.lblCodAct.AutoSize = true;
@@ -110,6 +123,7 @@
             this.txtDetalleAct.Name = "txtDetalleAct";
             this.txtDetalleAct.Size = new System.Drawing.Size(108, 20);
             this.txtDetalleAct.TabIndex = 2;
+            this.txtDetalleAct.TextChanged += new System.EventHandler(this.txtDetalleAct_TextChanged);
             // 
             // lblDetalleAct
             // 
@@ -134,6 +148,16 @@
             this.mrcBarrio.TabStop = false;
             this.mrcBarrio.Text = "Nuevo barrio";
             // 
+            // mskCodBarrio
+            // 
+            this.mskCodBarrio.Location = new System.Drawing.Point(72, 58);
+            this.mskCodBarrio.Mask = "99999";
+            this.mskCodBarrio.Name = "mskCodBarrio";
+            this.mskCodBarrio.Size = new System.Drawing.Size(108, 20);
+            this.mskCodBarrio.TabIndex = 7;
+            this.mskCodBarrio.ValidatingType = typeof(int);
+            this.mskCodBarrio.TextChanged += new System.EventHandler(this.mskCodBarrio_TextChanged);
+            // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
@@ -152,24 +176,6 @@
             this.cmdSalir.Text = "Salir";
             this.cmdSalir.UseVisualStyleBackColor = true;
             this.cmdSalir.Click += new System.EventHandler(this.cmdSalir_Click);
-            // 
-            // mskCodBarrio
-            // 
-            this.mskCodBarrio.Location = new System.Drawing.Point(72, 58);
-            this.mskCodBarrio.Mask = "99999";
-            this.mskCodBarrio.Name = "mskCodBarrio";
-            this.mskCodBarrio.Size = new System.Drawing.Size(108, 20);
-            this.mskCodBarrio.TabIndex = 7;
-            this.mskCodBarrio.ValidatingType = typeof(int);
-            // 
-            // mskCodAct
-            // 
-            this.mskCodAct.Location = new System.Drawing.Point(72, 58);
-            this.mskCodAct.Mask = "99999";
-            this.mskCodAct.Name = "mskCodAct";
-            this.mskCodAct.Size = new System.Drawing.Size(108, 20);
-            this.mskCodAct.TabIndex = 3;
-            this.mskCodAct.ValidatingType = typeof(int);
             // 
             // frmAgregarDatos
             // 

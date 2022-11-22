@@ -42,6 +42,7 @@
             this.cmdSalir = new System.Windows.Forms.Button();
             this.cmdMostrar = new System.Windows.Forms.Button();
             this.cmdConsultar = new System.Windows.Forms.Button();
+            this.cmdExportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,11 +162,22 @@
             this.cmdConsultar.UseVisualStyleBackColor = true;
             this.cmdConsultar.Click += new System.EventHandler(this.cmdConsultar_Click);
             // 
+            // cmdExportar
+            // 
+            this.cmdExportar.Location = new System.Drawing.Point(199, 277);
+            this.cmdExportar.Name = "cmdExportar";
+            this.cmdExportar.Size = new System.Drawing.Size(75, 23);
+            this.cmdExportar.TabIndex = 29;
+            this.cmdExportar.Text = "Exportar";
+            this.cmdExportar.UseVisualStyleBackColor = true;
+            this.cmdExportar.Click += new System.EventHandler(this.cmdExportar_Click);
+            // 
             // frmListadoDeSaldos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 476);
+            this.ClientSize = new System.Drawing.Size(367, 476);
+            this.Controls.Add(this.cmdExportar);
             this.Controls.Add(this.cmdConsultar);
             this.Controls.Add(this.cmdMostrar);
             this.Controls.Add(this.cmdSalir);
@@ -202,5 +214,6 @@
         private System.Windows.Forms.Button cmdSalir;
         private System.Windows.Forms.Button cmdMostrar;
         private System.Windows.Forms.Button cmdConsultar;
+        private System.Windows.Forms.Button cmdExportar;
     }
 }

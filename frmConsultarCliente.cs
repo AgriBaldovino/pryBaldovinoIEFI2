@@ -54,20 +54,10 @@ namespace pryBaldovinoIEFI
         {
             Int32 dni = Convert.ToInt32(mskDNI.Text);
             clsClientes BuscarC = new clsClientes();
-            BuscarC.Buscar(dni);
+            BuscarC.ListarGrillaConsultaCliente(dgvConsultarCliente, dni);
 
-            if (BuscarC.DniCliente != dni)
-            {
-                MessageBox.Show("El cliente no se encuentra en la base de datos");
 
-            }
-            else
-            {
-                lblNombreyApellido.Text = BuscarC.Nombre;
-                lblBarrio.Text = Convert.ToString(BuscarC.BarrioCliente);
-                lblActividad.Text = Convert.ToString(BuscarC.ActividadCliente);
-                lblSaldo.Text = Convert.ToString(BuscarC.SaldoCliente);
-            }
+
         }
     }
 }

@@ -23,6 +23,8 @@ namespace pryBaldovinoIEFI
         //Declaro de manera local las variables 
         private Int32 varCodigoActividad;
         private string varActividad;
+
+       
         public Int32 CodigoActividad
         {
             get { return varCodigoActividad; }
@@ -109,6 +111,7 @@ namespace pryBaldovinoIEFI
                 Comando.CommandText = Sql;
                 Comando.ExecuteNonQuery();
                 Conexion.Close();
+
             }
             catch (Exception)
             {
@@ -148,5 +151,6 @@ namespace pryBaldovinoIEFI
                 return e.ToString();
             }
         }
+       
     }
 }

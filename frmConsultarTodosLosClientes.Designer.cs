@@ -117,6 +117,7 @@
             this.Name = "frmConsultarTodosLosClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar clientes";
+            this.Load += new System.EventHandler(this.frmConsultarTodosLosClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaClientes)).EndInit();
             this.ResumeLayout(false);
 

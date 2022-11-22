@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
+using System.IO;
 
 namespace pryBaldovinoIEFI
 {
@@ -22,7 +23,7 @@ namespace pryBaldovinoIEFI
         private Int32 Barrio;
         private Int32 Actividad;
         private Int32 Saldo;
-        
+
         public Int32 DniCliente
         {
             get { return DNI; }
@@ -162,39 +163,233 @@ namespace pryBaldovinoIEFI
             Conexion.Close();
         }
 
-        public void ListarClientes(DataGridView grilla)
+        public void ListarClientes(DataGridView dgvConsultaClientes)
         {
-           try
-           {
-                Conexion.ConnectionString= CadenaConexion;
+            try
+            {
+                Conexion.ConnectionString = CadenaConexion;
                 Conexion.Open();
-                Comando.Connection= Conexion;
+                Comando.Connection = Conexion;
                 Comando.CommandType = CommandType.TableDirect;
                 Comando.CommandText = Tabla;
                 OleDbDataReader DR = Comando.ExecuteReader();
-                grilla.Rows.Clear();
                 clsBarrio Barrio = new clsBarrio();
-                String NombreBarrio = "";
+                String DetalleBarrio = "";
                 clsActividad Actividad = new clsActividad();
-                String NombreActividad = "";
+                String DetalleActividad = "";
 
                 if (DR.HasRows)
                 {
                     while (DR.Read())
                     {
-                        NombreBarrio = Barrio.Buscar(DR.GetInt32(2));
-                        NombreActividad = Actividad.Buscar(DR.GetInt32(3));
-                        grilla.Rows.Add(DR.GetInt32(0), DR.GetString(1), NombreBarrio, NombreActividad, DR.GetString(4));
+                        DetalleBarrio = Barrio.Buscar(DR.GetInt32(2));
+                        DetalleActividad = Actividad.Buscar(DR.GetInt32(3));
+                        dgvConsultaClientes.Rows.Add(DR.GetInt32(0), DR.GetString(1), DetalleBarrio, DetalleActividad, DR.GetInt32(4));
                     }
                 }
-           }
-           catch (Exception)
-           {
+            }
+            catch (Exception)
+            {
 
-           }
-
+            }
 
         }
+
+        public void ListarGrillaAct(DataGridView dgvConsultaCliente, Int32 CodActividad)
+        {
+            try
+            {
+                Conexion.ConnectionString = CadenaConexion;
+                Conexion.Open();
+                Comando.Connection = Conexion;
+                Comando.CommandType = CommandType.TableDirect;
+                Comando.CommandText = Tabla;
+                dgvConsultaCliente.Rows.Clear();
+                OleDbDataReader Lector = Comando.ExecuteReader();
+                
+                if (Lector.HasRows)
+                {
+                    while (Lector.Read())
+                    {
+                        if (Lector.GetInt32(3) == CodActividad)
+                        {
+                            //cambia los codigos de act y barrio por sus respectivos detalles
+
+                            Int32 codBarrio = Lector.GetInt32(2);
+                            Int32 codAct = Lector.GetInt32(3);
+
+                            clsBarrio BarrioConsulta = new clsBarrio();
+                            BarrioConsulta.Buscar(codBarrio);
+                            clsActividad ActConsulta = new clsActividad();
+                            ActConsulta.Buscar(codAct);
+
+                            dgvConsultaCliente.Rows.Add(Lector.GetInt32(0), Lector.GetString(1), BarrioConsulta.CodigoBarrio, ActConsulta.CodigoActividad, Lector.GetInt32(4));
+
+                        }
+
+
+                    }
+                    
+                    
+                    //MessageBox.Show("No hay clientes que realicen esa actividad");
+                    
+                }
+                Conexion.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha podido cargar la informacion");
+            }
+        }
+
+        public void ListarGrillaBarrio(DataGridView dgvConsultaCliente, Int32 CodBarrio)
+        {
+            try
+            {
+                Conexion.ConnectionString = CadenaConexion;
+                Conexion.Open();
+                Comando.Connection = Conexion;
+                Comando.CommandType = CommandType.TableDirect;
+                Comando.CommandText = Tabla;
+                dgvConsultaCliente.Rows.Clear();
+                OleDbDataReader Lector = Comando.ExecuteReader();
+
+                if (Lector.HasRows)
+                {
+                    while (Lector.Read())
+                    {
+                        if (Lector.GetInt32(2) == CodBarrio)
+                        {
+                            //cambia los codigos de act y barrio por sus respectivos detalles
+
+                            Int32 codBarrio = Lector.GetInt32(2);
+                            Int32 codAct = Lector.GetInt32(3);
+
+                            clsBarrio BarrioConsulta = new clsBarrio();
+                            BarrioConsulta.Buscar(codBarrio);
+                            clsActividad ActConsulta = new clsActividad();
+                            ActConsulta.Buscar(codAct);
+
+                            dgvConsultaCliente.Rows.Add(Lector.GetInt32(0), Lector.GetString(1), BarrioConsulta.CodigoBarrio, ActConsulta.CodigoActividad, Lector.GetInt32(4));
+
+                        }
+
+
+                    }
+
+
+                    //MessageBox.Show("No hay clientes que realicen esa actividad");
+
+                }
+                Conexion.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha podido cargar la informacion");
+            }
+        }
+
+        public void ListarGrillaConsultaCliente(DataGridView dgvConsultarCliente, Int32 dni)
+        {
+            try
+            {
+                Conexion.ConnectionString = CadenaConexion;
+                Conexion.Open();
+                Comando.Connection = Conexion;
+                Comando.CommandType = CommandType.TableDirect;
+                Comando.CommandText = Tabla;
+                OleDbDataReader DR = Comando.ExecuteReader();
+                clsBarrio Barrio = new clsBarrio();
+                String DetalleBarrio = "";
+                clsActividad Actividad = new clsActividad();
+                String DetalleActividad = "";
+
+                if (DR.HasRows)
+                {
+                    while (DR.Read())
+                    {
+                        if (DR.GetInt32(0) == dni)
+                        {
+
+                            DetalleBarrio = Barrio.Buscar(DR.GetInt32(2));
+                            DetalleActividad = Actividad.Buscar(DR.GetInt32(3));
+                            dgvConsultarCliente.Rows.Add(DR.GetInt32(0), DR.GetString(1), DetalleBarrio, DetalleActividad, DR.GetInt32(4));
+
+                        }
+                    }
+                    //MessageBox.Show("No hay clientes que realicen esa actividad");
+
+                }
+                Conexion.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha podido cargar la informacion");
+            }
+
+        }
+
+        public void ExportarClientesSaldos()
+        {
+            try
+            {
+                Conexion.ConnectionString = CadenaConexion;
+                Conexion.Open();
+                Comando.Connection = Conexion;
+                Comando.CommandType = CommandType.TableDirect;
+                Comando.CommandText = Tabla;
+                OleDbDataReader Lector = Comando.ExecuteReader();
+
+                //Creo el excel para enviar datos
+                StreamWriter ExportarDatos = new StreamWriter("ExportarSaldosClientes.csv", false, Encoding.UTF8);
+                ExportarDatos.WriteLine("Listado de Socios");
+                ExportarDatos.WriteLine("DNI;Nombre y Apellido;Saldo");
+
+                //VarCantCliente = 0;
+                //VarTotalIngreso = 0;
+                //VarPromedio = 0;
+                if (Lector.HasRows)
+                {
+                    while (Lector.Read())
+                    {
+                        Int32 codBarrio = Lector.GetInt32(2);
+                        Int32 codAct = Lector.GetInt32(3);
+                            
+                        clsBarrio BarrioConsulta = new clsBarrio();
+                        BarrioConsulta.Buscar(codBarrio);
+                        clsActividad ActConsulta = new clsActividad();
+                        ActConsulta.Buscar(codAct);
+                            
+                        ExportarDatos.Write(Lector.GetInt32(0));
+                        ExportarDatos.Write(";");
+                        ExportarDatos.Write(Lector.GetString(1));
+                        ExportarDatos.Write(";");
+                        ExportarDatos.Write(Lector.GetInt32(4));
+                        ExportarDatos.Write(";");
+                        ExportarDatos.Write("\n");
+                        
+                    }
+                    ExportarDatos.Write("Cantidad de socios:");
+                    //ExportarDatos.WriteLine(VarCantCliente);
+                    ExportarDatos.Write("\n");
+                    ExportarDatos.Write("Total de saldo:");
+                    //ExportarDatos.WriteLine(VarTotalIngreso);
+                    ExportarDatos.Write("\n");
+                    ExportarDatos.Write("Promedio:");
+                    //ExportarDatos.WriteLine(VarPromedio);
+                    ExportarDatos.Write("\n");
+                }
+                Conexion.Close();
+                ExportarDatos.Close();
+                MessageBox.Show("Tus datos han sido exportados correctamente");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al exportar los datos");
+
+            }
+        }
+
 
 
 

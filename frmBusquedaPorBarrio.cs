@@ -46,7 +46,9 @@ namespace pryBaldovinoIEFI
 
         private void cmdConsultar_Click(object sender, EventArgs e)
         {
-
+            Int32 codBarrio = Convert.ToInt32(lstBarrio.SelectedValue);
+            clsClientes ConsultaBarrio = new clsClientes();
+            ConsultaBarrio.ListarGrillaBarrio(dgvConsultaCliente, codBarrio);
         }
     }
 }
